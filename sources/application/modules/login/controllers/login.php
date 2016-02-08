@@ -12,6 +12,7 @@ class Login extends CI_Controller {
     {
         set_theme('title','Login');
         set_theme('content', load_module('login','login'));
+        set_theme('bodyClass','login bg-login printable');
         load_template();
     }
 

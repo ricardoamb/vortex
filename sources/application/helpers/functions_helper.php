@@ -51,13 +51,9 @@ function initialize($instance='dashboard')
             set_theme('defaultFooter','');
             set_theme('template','dashboard/dashboard');
             // Style
-            set_theme('coreCSS',load_style(array('admin','elements')), false);
-            set_theme('pluginsCSS',load_style(array('plugins')), false);
-            // Javascript
-            set_theme('modernizr',load_javascript(array('modernizr.min')), true);
-            // Icons
-            set_theme('favicon',load_icon());
-            set_theme('apple-touch-icon',load_icon('apple-touch-icon','apple-touch-icon','png'));
+            set_theme('headerIncludes',load_style(array('bootstrap.min','font-awesome.min','main')),false);
+            // javascript
+            set_theme('footerIncludes',load_javascript(array('jquery-1.12.0.min','bootstrap.min')),false);
             break;
 
         case 'frontend':
@@ -141,5 +137,6 @@ function load_javascript($file=null,$folder='assets/js',$remote=false)
 
 function load_icon($rel='shortcut icon',$file='favicon',$extension='ico',$folder='assets/img/icons')
 {
-    return '<link rel="'.$rel.'" href="'.base_url("$folder/$file.$extension").'">';
+    $result = '<link rel="'.$rel.'" href="'.base_url("$folder/$file.$extension").'">';
+    return $result;
 }

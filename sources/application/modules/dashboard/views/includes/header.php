@@ -10,27 +10,24 @@
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
 <title><?php if(isset($defaultTitle)): ?>{defaultTitle} | <?php endif; ?>{title}</title>
-
-<meta name="description" content="Admin Dashboard for Vortex System Website">
-<meta name="author" content="">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="" />
+<meta name="author" content="" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0" />
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-<!-- BEGIN CORE CSS -->{coreCSS}<!-- END CORE CSS -->
-
-<!-- BEGIN PLUGINS CSS -->{pluginsCSS}<!-- END PLUGINS CSS -->
-
-<!-- BEGIN SHORTCUT AND TOUCH ICONS -->
-{favicon}
-{apple-touch-icon}
-<!-- END SHORTCUT AND TOUCH ICONS -->
-
-<!-- MODERNIZR JS -->{modernizr}<!-- MODERNIZR JS -->
-
+<?php if(isset($coreCSS)): ?><!-- BEGIN CORE CSS -->{coreCSS}<!-- END CORE CSS --><?php echo PHP_EOL; endif;  ?>
+<?php if(isset($pluginsCSS)): ?><!-- BEGIN PLUGINS CSS -->{pluginsCSS}<!-- END PLUGINS CSS --><?php echo PHP_EOL; endif;  ?>
+<?php if(isset($shortcutIcon)): ?><!-- BEGIN SHORTCUT ICON -->{shortcutIcon}<!-- END SHORTCUT AND TOUCH ICONS --><?php echo PHP_EOL; endif;  ?>
+<?php if(isset($touchIcon)): ?><!-- BEGIN SHORTCUT ICON -->{touchIcon}<!-- END SHORTCUT AND TOUCH ICONS --><?php echo PHP_EOL; endif; ?>
+<?php if(isset($headerIncludes)): ?><!-- BEGIN HEADER INCLUDES -->{headerIncludes}<!-- END HEADER INCLUDES --><?php echo PHP_EOL; endif; ?>
+<?php if(isset($modernizr)): ?><!-- MODERNIZR JS -->{modernizr}<!-- MODERNIZR JS --><?php echo PHP_EOL; endif; ?>
 
 </head>
-<body>
+
+<?php if(isset($bodyClass)){ ?><body class="{bodyClass}"><?php }else{ ?><body><?php } ?>
+
+
+<!-- CONTENT -->
+

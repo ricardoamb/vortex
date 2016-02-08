@@ -3,7 +3,7 @@
 switch ($screen)
 {
     case 'login':
-        echo 'Tela de Login';
+        echo '<h1>Tela de Login</h1>';
         break;
     default:
         echo '<h1>Página não encontrada.</h1>';

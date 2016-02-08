@@ -1,0 +1,40 @@
+.login-error{
+    color: #337AB7;
+    font: 11px verdana;
+    margin:0;
+    padding:0;
+}
+.login-error i{
+    margin-left:5px;
+    margin-right:5px;
+}
+
+p    {color:white}
+
+body.login{
+    background: url("../img/large/lock.jpg") no-repeat fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.hover-panel{
+    width: 100%;
+    height: 100%;
+    background: url('../img/large/lock.jpg') fixed no-repeat;
+    background-size: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: none;
+}
+
+.forgot-message{
+    font: 12px Helvetica;
+    text-align: center;
+}
+
+.nav-user .user{
+    margin:0;
+}

@@ -5,12 +5,14 @@ class Login extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        initialize();
     }
 
     public function index()
     {
-        // Carrega o modulo de login
-        $this->load->view('dashboard/dashboard_view');
+        set_theme('title','Login');
+        set_theme('content', load_module('login','login'));
+        load_template();
     }
 
 }

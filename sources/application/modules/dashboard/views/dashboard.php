@@ -2,4 +2,6 @@
 
 include_once('includes/header.php');
 
+echo '{content}';
+
 include_once('includes/footer.php');

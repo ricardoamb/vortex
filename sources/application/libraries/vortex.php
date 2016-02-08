@@ -1,14 +1,14 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class MY_Vortex {
+class Vortex {
 
-    protected $ci;
+    protected $vtx;
     public $theme = array();
 
     public function __construct()
     {
-        $this->ci =& get_instance();
-        $this->ci->load->helper('functions');
+        $this->vtx =& get_instance();
+        $this->vtx->load->helper('functions');
     }
 
 }

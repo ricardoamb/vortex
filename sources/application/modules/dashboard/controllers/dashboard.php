@@ -10,11 +10,6 @@ class Dashboard extends CI_Controller {
 
     public function index()
     {
-        $this->start();
-    }
-
-    public function start()
-    {
         redirect('login');
     }
 

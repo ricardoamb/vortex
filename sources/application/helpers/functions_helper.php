@@ -52,8 +52,16 @@ function initialize($instance='dashboard')
             set_theme('template','dashboard/dashboard');
             // Style
             set_theme('headerIncludes',load_style(array('bootstrap.min','font-awesome.min','main')),false);
+            set_theme('coreCSS',load_style(array('admin','elements')),false);
+            set_theme('pluginsCSS',load_style(array('plugins')),false);
+            set_theme('shortcutIcon',load_icon());
+            set_theme('touchIcon',load_icon('apple-touch-icon','apple-touch-icon','png'));
             // javascript
+            set_theme('modernizr',load_javascript(array('modernizr.min')),false);
             set_theme('footerIncludes',load_javascript(array('jquery-1.12.0.min','bootstrap.min')),false);
+            set_theme('globalVendors',load_javascript(array('global-vendors')),false);
+            set_theme('vortex',load_javascript(array('pleasure','layout')),false);
+            set_theme('defaultIncludes',load_javascript(array('main')),false);
             break;
 
         case 'frontend':

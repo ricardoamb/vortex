@@ -7,9 +7,9 @@ var Pleasure = {
 		rippledButtons: true,
 
 		paths: {
-			images: "../../assets/globals/img",
-			css: "../assets/globals/css",
-			plugins: "assets/globals/plugins"
+			images: "../img",
+			css: "../css",
+			plugins: "plugins"
 		},
 
 		ga: {

@@ -3,7 +3,7 @@
 switch ($screen)
 {
     case 'login':
-        echo '<h1>Tela de Login</h1>';
+        include('pages/login.php');
         break;
     default:
         echo '<h1>Página não encontrada.</h1>';

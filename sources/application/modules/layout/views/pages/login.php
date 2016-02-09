@@ -1,100 +1,18 @@
-<div class="login-screen">
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<div class="login-screen <?php if(form_error('email') || form_error('senha')) echo 'error'; ?>">
     <div class="panel-login blur-content">
-        <div class="panel-heading"><img src="<?php echo base_url('assets/img/logo-white-large@2x.png'); ?>" height="100" alt=""></div><!--.panel-heading-->
+        <div class="panel-heading"><!--panel-heading-->
+            <img src="<?php echo base_url('assets/img')?>/logo-vortex-white.png" height="40" alt="Vortex" style="margin:25px 0">
+        </div><!--panel-heading-->
 
-        <div id="pane-login" class="panel-body active">
-            <h2>Login to Dashboard</h2>
-            <div class="form-group">
-                <div class="inputer">
-                    <div class="input-wrapper">
-                        <input type="email" class="form-control" placeholder="Enter your email address">
-                    </div>
-                </div>
-            </div><!--.form-group-->
-            <div class="form-group">
-                <div class="inputer">
-                    <div class="input-wrapper">
-                        <input type="password" class="form-control" placeholder="Enter your password">
-                    </div>
-                </div>
-            </div><!--.form-group-->
-            <div class="form-buttons clearfix">
-                <label class="pull-left"><input type="checkbox" name="remember" value="1"> Remember me</label>
-                <button type="submit" class="btn btn-success pull-right">Login</button>
-            </div><!--.form-buttons-->
+            <?php include_once('login/login.php'); ?>
 
-            <div class="social-accounts">
-                <div class="btn-group btn-merged btn-group-justified">
-                    <div class="btn-group">
-                        <a class="btn btn-social btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-social btn-github"><i class="fa fa-github"></i> Github</a>
-                    </div>
-                </div>
-            </div><!--.social-accounts-->
+            <?php include_once('login/login_forgot_password.php'); ?>
 
-            <ul class="extra-links">
-                <li><a href="#" class="show-pane-forgot-password">Forgot your password</a></li>
-                <li><a href="#" class="show-pane-create-account">Create a new account</a></li>
-            </ul>
-        </div><!--#login.panel-body-->
-
-        <div id="pane-forgot-password" class="panel-body">
-            <h2>Forgot Your Password</h2>
-            <div class="form-group">
-                <div class="inputer">
-                    <div class="input-wrapper">
-                        <input type="email" class="form-control" placeholder="Enter your email address">
-                    </div>
-                </div>
-            </div><!--.form-group-->
-            <div class="form-buttons clearfix">
-                <button type="submit" class="btn btn-white pull-left show-pane-login">Cancel</button>
-                <button type="submit" class="btn btn-success pull-right">Send</button>
-            </div><!--.form-buttons-->
-        </div><!--#pane-forgot-password.panel-body-->
-
-        <div id="pane-create-account" class="panel-body">
-            <h2>Create a New Account</h2>
-            <div class="form-group">
-                <div class="inputer">
-                    <div class="input-wrapper">
-                        <input type="text" class="form-control" placeholder="Enter your full name">
-                    </div>
-                </div>
-            </div><!--.form-group-->
-            <div class="form-group">
-                <div class="inputer">
-                    <div class="input-wrapper">
-                        <input type="email" class="form-control" placeholder="Enter your email address">
-                    </div>
-                </div>
-            </div><!--.form-group-->
-            <div class="form-group">
-                <div class="inputer">
-                    <div class="input-wrapper">
-                        <input type="password" class="form-control" placeholder="Enter your password">
-                    </div>
-                </div>
-            </div><!--.form-group-->
-            <div class="form-group">
-                <div class="inputer">
-                    <div class="input-wrapper">
-                        <input type="password" class="form-control" placeholder="Enter your password again">
-                    </div>
-                </div>
-            </div><!--.form-group-->
-            <div class="form-group">
-                <label><input type="checkbox" name="remember" value="1"> I have read and agree to the term of use.</label>
-            </div>
-            <div class="form-buttons clearfix">
-                <button type="submit" class="btn btn-white pull-left show-pane-login">Cancel</button>
-                <button type="submit" class="btn btn-success pull-right">Sign Up</button>
-            </div><!--.form-buttons-->
-        </div><!--#login.panel-body-->
+            <?php include_once('login/login_create_account.php'); ?>
 
     </div><!--.blur-content-->
+
 </div><!--.login-screen-->
 
 <div class="bg-blur dark">
@@ -106,3 +24,10 @@
         <feGaussianBlur stdDeviation='7' />
     </filter>
 </svg>
+<?php
+    switch ($this->uri->segment(3))
+    {
+        case ('logoff'):
+            echo '<span id="message" data-status="true" data-msgTitle="Você saiu do sistema!"  data-msg="Você realizou o logoff com sucesso. <br>Esperamos você em breve!" data-type="success"></span>';
+    }
+?>

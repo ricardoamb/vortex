@@ -17,4 +17,9 @@ class Login extends CI_Controller {
         load_template();
     }
 
+    public function enter()
+    {
+        echo true;
+    }
+
 }

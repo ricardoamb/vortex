@@ -6,6 +6,5 @@ switch ($screen)
         include('pages/login.php');
         break;
     default:
-        echo '<h1>Página não encontrada.</h1>';
-        break;
+        echo 'erro 404';
 }

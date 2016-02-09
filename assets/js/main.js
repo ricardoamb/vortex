@@ -8,4 +8,18 @@ $(document).ready(function(){
         $('#inputPassword').css('border-color','#FF0000');
     }
 
+
+    $('#btn-login').click(function(){
+        $.ajax({
+            url: 'login/enter',
+            success: function(data) {
+                alert(data);
+            }
+        });
+    });
+
+    $('#login-form').submit(function(){
+        return false;
+    });
+
 });

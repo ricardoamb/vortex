@@ -7,20 +7,11 @@ $(document).ready(function(){
     $('#notifications').perfectScrollbar();
     $('#settings').perfectScrollbar();
 
-    if ($(".login-error-email").length){
-        $('#inputEmail').css('border-color','#FF0000');
-    }
-
-    if ($(".login-error-senha").length){
-        $('#inputPassword').css('border-color','#FF0000');
-    }
-
     var btnLogin = $('#btn-login');
     var loginTitle = $('#loginTitle');
     var loginSrc = $('.login-screen');
 
     $(btnLogin).click(function(){
-        if($(loginSrc).hasClass('err')) $(loginSrc).removeClass('err');
         if($(loginTitle).hasClass('errTitle')) $(loginTitle).removeClass('errTitle').html('Entrar no Sistema');
         var txtLoginEmail = $('#email');
         var txtSenha = $('#senha');
@@ -51,11 +42,14 @@ $(document).ready(function(){
                         Lobibox.notify(
                             'error',
                             {
+                                position: "top right",
+                                width: $(window).width(),
                                 title: 'Login / E-Mail Incorreto',
                                 msg: 'O Login / E-mail digitado não corresponde a um usuário válido. Verifique e tente novamente!'
                             }
 
                         );
+                        $(loginTitle).html('<i class="fa fa-warning" style="margin-right:10px;"></i> Verifique os dados').addClass('errTitle');
                         $(txtSenha).val('');
                         $(txtLoginEmail).val('').focus();
                         shake(loginSrc);
@@ -64,10 +58,13 @@ $(document).ready(function(){
                         Lobibox.notify(
                             'error',
                             {
+                                position: "top right",
+                                width: $(window).width(),
                                 title: 'Senha Incorreta',
                                 msg: 'A Senha digitada está incorreta. Verifique e tente novamente!'
                             }
                         );
+                        $(loginTitle).html('<i class="fa fa-warning" style="margin-right:10px;"></i> Verifique os dados').addClass('errTitle');
                         $(txtSenha).val('').focus();
                         shake(loginSrc);
                         break;
@@ -75,6 +72,8 @@ $(document).ready(function(){
                         Lobibox.notify(
                             'error',
                             {
+                                position: "top right",
+                                width: $(window).width(),
                                 title: 'Usuário Inativo',
                                 msg: 'Você não ativou sua conta por favor verifique seu e-mail e tente novamente'
                             }
@@ -87,9 +86,6 @@ $(document).ready(function(){
         }
         else
         {
-            if(!$(loginSrc).hasClass('err')){
-                $(loginSrc).addClass('err');
-            }
             shake(loginSrc);
             $(loginTitle).html('<i class="fa fa-warning" style="margin-right:10px;"></i> Verifique os dados').addClass('errTitle');
         }
@@ -127,6 +123,27 @@ $(document).ready(function(){
         });
     });
 
+    if($('#message').length)
+    {
+        var msg = $('#message').data('Message');
+        var title = $('#message').data('Title');
+        var type = $('#message').data('msgType');
+
+        alert(title);
+        switch (type)
+        {
+            case 'error':
+                Lobibox.notify(
+                    'error',
+                    {
+                        title: title,
+                        msg: msg
+                    }
+                );
+        }
+
+    }
+
     /////                      /////
     /////                      /////
     //                            //
@@ -154,8 +171,6 @@ $(document).ready(function(){
         soundPath: "../assets/sounds/",
         soundExt: ".ogg",
         iconSource: "fontAwesome",
-        position: "top right",
-        width: $(window).width(),
         delayIndicator: false,
         delay: 5000,
         showClass: 'bounceInLeft',

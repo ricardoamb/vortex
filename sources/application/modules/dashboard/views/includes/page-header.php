@@ -18,5 +18,6 @@
         </div>
     </div>
 </div>
+<?php get_message('dashMessage'); ?>
 <!-- END PAGE HEADER -->
 

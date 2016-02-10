@@ -171,3 +171,38 @@ function is_logged($redirect=true)
         return true;
     }
 }
+
+function set_message($id='msg',$title=null, $msg=null,$type='info')
+{
+    $vtx =& get_instance();
+    $vtx->load->library('session');
+    switch($type)
+    {
+        case 'success':
+            $vtx->session->set_flashdata($id,'<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><strong>'.$title.'</strong> '.$msg.'</div>');
+            break;
+        case 'info':
+            $vtx->session->set_flashdata($id,'<div class="alert alert-info" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><strong>'.$title.'</strong> '.$msg.'</div>');
+            break;
+        case 'warning':
+            $vtx->session->set_flashdata($id,'<div class="alert alert-warning" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><strong>'.$title.'</strong> '.$msg.'</div>');
+            break;
+        case 'error':
+            $vtx->session->set_flashdata($id,'<div class="alert alert-danger" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><strong>'.$title.'</strong> '.$msg.'</div>');
+            break;
+        default:
+            $vtx->session->set_flashdata($id,'<div class="alert alert-info" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><strong>'.$title.'</strong> '.$msg.'</div>');
+            break;
+    }
+}
+
+function get_message($id, $print=true)
+{
+    $vtx =& get_instance();
+    $vtx->load->library('session');
+    if($print){
+        echo $vtx->session->flashdata($id);
+    }else{
+        return $vtx->session->flashdata($id);
+    }
+}

@@ -40,6 +40,7 @@ class Login extends CI_Controller {
                     'user_status' => 'logged'
                 );
                 $this->session->set_userdata($data);
+                set_message('dashMessage','Sucesso!','Mensagem enviada corretamente.','error');
                 echo $this->session->userdata('user_status');
             }
             else

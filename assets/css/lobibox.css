@@ -716,6 +716,7 @@ fieldset[disabled] .lobibox .lobibox-btn.lobibox-btn-default.active {
 .lobibox-notify-wrapper {
   z-index: 5000;
   position: fixed;
+  top: 0px;
 }
 .lobibox-notify-wrapper.top {
   top: 0px;
@@ -737,6 +738,7 @@ fieldset[disabled] .lobibox .lobibox-btn.lobibox-btn-default.active {
 .lobibox-notify-wrapper-large {
   z-index: 5000;
   position: fixed;
+  top: 0px;
 }
 .lobibox-notify-wrapper-large.top {
   top: 0px;
@@ -786,11 +788,9 @@ fieldset[disabled] .lobibox .lobibox-btn.lobibox-btn-default.active {
 }
 .lobibox-notify-wrapper-large .lb-notify-tabs > li.lobibox-notify-error > a {
   background-color: rgba(202, 33, 33, 0.9);
-  border-color: #bd1f1f;
 }
 .lobibox-notify-wrapper-large .lb-notify-tabs > li.lobibox-notify-error > a:hover {
   background-color: #ca2121;
-  border-color: #b41d1d;
 }
 .lobibox-notify-wrapper-large .lb-notify-tabs > li.lobibox-notify-success > a {
   background-color: rgba(41, 184, 126, 0.9);
@@ -855,11 +855,10 @@ fieldset[disabled] .lobibox .lobibox-btn.lobibox-btn-default.active {
   min-height: 85px;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   font-size: 14px;
-  margin: 7px 0;
+  margin: 0 0;
+  padding-top: 2px;
   border-radius: 0;
   border: 1px solid transparent;
-  -webkit-box-shadow: 2px 2px 5px #aaaaaa;
-  box-shadow: 2px 2px 5px #aaaaaa;
   -webkit-transition: all 0.2s;
   -o-transition: all 0.2s;
   transition: all 0.2s;
@@ -926,7 +925,6 @@ fieldset[disabled] .lobibox .lobibox-btn.lobibox-btn-default.active {
 }
 .lobibox-notify.lobibox-notify-error:hover {
   background-color: #ca2121;
-  border-color: #FFF;
 }
 .lobibox-notify.lobibox-notify-success {
   border-color: #24a370;
@@ -953,12 +951,9 @@ fieldset[disabled] .lobibox .lobibox-btn.lobibox-btn-default.active {
 }
 .lobibox-notify.lobibox-notify-info:hover {
   background-color: #2e79b4;
-  border-color: #FFF;
 }
 .lobibox-notify:hover {
   cursor: pointer;
-  -webkit-box-shadow: 3px 3px 10px #aaaaaa;
-  box-shadow: 3px 3px 10px #aaaaaa;
 }
 .lobibox-notify.notify-mini {
   min-height: 36px;

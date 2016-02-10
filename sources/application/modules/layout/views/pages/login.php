@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<div class="login-screen <?php if(form_error('email') || form_error('senha')) echo 'error'; ?>">
-    <div class="panel-login blur-content">
+<div class="login-screen">
+    <span id="url-enter" data-url="<?php echo base_url('login/enter');?>"></span>
+    <div class="panel-login">
         <div class="panel-heading"><!--panel-heading-->
             <img src="<?php echo base_url('assets/img')?>/logo-vortex-white.png" height="40" alt="Vortex" style="margin:25px 0">
         </div><!--panel-heading-->
@@ -15,7 +16,7 @@
 
 </div><!--.login-screen-->
 
-<div class="bg-blur dark">
+<div class="dark">
     <div class="overlay"></div><!--.overlay-->
 </div><!--.bg-blur-->
 

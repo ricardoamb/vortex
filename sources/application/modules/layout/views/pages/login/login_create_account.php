@@ -4,7 +4,14 @@
     <div class="form-group">
         <div class="inputer">
             <div class="input-wrapper">
-                <input type="text" class="form-control" placeholder="Nome Completo">
+                <input type="text" class="form-control" placeholder="Nome">
+            </div>
+        </div>
+    </div><!--.form-group-->
+    <div class="form-group">
+        <div class="inputer">
+            <div class="input-wrapper">
+                <input type="text" class="form-control" placeholder="Login">
             </div>
         </div>
     </div><!--.form-group-->
@@ -22,16 +29,12 @@
             </div>
         </div>
     </div><!--.form-group-->
-    <div class="form-group">
-        <div class="inputer">
-            <div class="input-wrapper">
-                <input type="password" class="form-control" placeholder="Confirmação de Senha">
-            </div>
+    <div class="form-buttons clearfix"><!-- form-buttons -->
+        <div class="checkboxer pull-left" style="margin-left:28px;margin-bottom:20px;">
+            <input type="checkbox" id="checkboxTerms" value="termosservico">
+            <label for="checkboxTerms"><a href="#" style="color:white;">Eu concordo com os termos de serviço.</a></label>
         </div>
-    </div><!--.form-group-->
-    <div class="form-group">
-        <label><input type="checkbox" name="remember" value="1"> Eu concordo com os termos de serviço.</label>
-    </div>
+    </div><!-- end form-buttons-->
     <div class="form-buttons clearfix">
         <button type="submit" class="btn btn-white pull-left show-pane-login">Cancelar</button>
         <button type="submit" class="btn btn-success pull-right">Cadastrar</button>

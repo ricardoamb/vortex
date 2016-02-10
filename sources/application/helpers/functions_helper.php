@@ -46,21 +46,22 @@ function initialize($instance='dashboard')
             //
             $vtx->load->library(array('vortex','session','form_validation','parser'));
             $vtx->load->helper(array('form','url','array','text'));
-            // $vtx->load->model(array(''));
+            $vtx->load->model('login_mdl');
             set_theme('defaultTitle','Vortex');
             set_theme('defaultFooter','');
+            set_theme('bodyClass','theme-grey',false);
             set_theme('template','dashboard/dashboard');
             // Style
-            set_theme('headerIncludes',load_style(array('bootstrap.min','font-awesome.min','main')),false);
+            set_theme('headerIncludes',load_style(array('bootstrap.min','font-awesome.min','ionicons.min','perfect-scrollbar.min','main')),false);
             set_theme('coreCSS',load_style(array('admin','elements')),false);
-            set_theme('pluginsCSS',load_style(array('plugins')),false);
+            set_theme('pluginsCSS',load_style(array('plugins','lobibox','animate')),false);
             set_theme('shortcutIcon',load_icon());
             set_theme('touchIcon',load_icon('apple-touch-icon','apple-touch-icon','png'));
             // javascript
             set_theme('modernizr',load_javascript(array('modernizr.min')),false);
             set_theme('footerIncludes',load_javascript(array('jquery-1.12.0.min','bootstrap.min')),false);
             set_theme('globalVendors',load_javascript(array('global-vendors')),false);
-            set_theme('vortex',load_javascript(array('pleasure','layout')),false);
+            set_theme('vortex',load_javascript(array('pleasure','layout','lobibox.min','perfect-scrollbar.jquery.min')),false);
             set_theme('defaultIncludes',load_javascript(array('main')),false);
             break;
 
@@ -147,4 +148,26 @@ function load_icon($rel='shortcut icon',$file='favicon',$extension='ico',$folder
 {
     $result = '<link rel="'.$rel.'" href="'.base_url("$folder/$file.$extension").'">';
     return $result;
+}
+
+// Verify the login in the system
+function is_logged($redirect=true)
+{
+    $vtx =& get_instance();
+    $vtx->load->library('session');
+    $user_status = $vtx->session->userdata('user_status');
+    if(!isset($user_status) || $user_status != 'logged')
+    {
+        if($redirect)
+        {
+            redirect('login');
+        }
+        else{
+            return false;
+        }
+    }
+    else
+    {
+        return true;
+    }
 }

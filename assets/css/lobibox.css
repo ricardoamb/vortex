@@ -245,8 +245,8 @@ body.lobibox-open {
   position: fixed;
   z-index: 4001;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-  -webkit-box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+  /* -webkit-box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);*/
 }
 .lobibox * {
   box-sizing: border-box;
@@ -316,13 +316,13 @@ body.lobibox-open {
 }
 .lobibox.lobibox-confirm .lobibox-header {
   color: #eeeeee;
-  background-color: #3c2d2d;
+  background-color: rgb(100,100,100);
 }
 .lobibox.lobibox-confirm .lobibox-body .lobibox-icon {
-  color: #3c2d2d;
+  color: rgb(100,100,100);
 }
 .lobibox.lobibox-confirm .lobibox-footer {
-  background-color: #594343;
+  background-color: white;
 }
 .lobibox.lobibox-success {
   border: 1px solid #29b87e;

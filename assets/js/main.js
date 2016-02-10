@@ -99,6 +99,34 @@ $(document).ready(function(){
         return false;
     });
 
+    $('.logout').click(function(){
+        Lobibox.confirm({
+            msg: 'Deseja realmente sair do sistema?',
+            title: 'Sair?',
+            closeButton: false,
+            //buttons: ['ok', 'cancel', 'yes', 'no'],
+            //Or more powerfull way
+            buttons: {
+                yes: {
+                    'class': 'btn btn-blue-grey btn-ripple',
+                    closeOnClick: true,
+                    text: 'Sim'
+                },
+                no: {
+                    'class': 'btn btn-blue-grey btn-ripple',
+                    closeOnClick: true,
+                    text: 'Não'
+                },
+            },
+            callback: function(lobibox, type){
+                var btnType;
+                if (type === 'yes'){
+                    $(location).attr('href', '/logout');
+                }
+            }
+        });
+    });
+
     /////                      /////
     /////                      /////
     //                            //

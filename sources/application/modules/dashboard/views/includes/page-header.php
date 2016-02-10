@@ -12,7 +12,7 @@
                 <li><a href="#"><i class="ion-home"></i></a></li>
                 <li><a href="#">Pages</a></li>
                 <li><a href="#" class="active">Blank Page</a></li>
-                <a class="btn btn-danger logout" data-toggle="tooltip" data-placement="bottom" title data-original-title="Sair"><i class="fa fa-sign-out fa-lg"></i></a>
+                <a class="btn btn-danger logout" data-toggle="tooltip" data-placement="bottom" title data-original-title="Sair"><i class="ion-log-out"></i></a>
             </ol>
             <!-- END BREADCRUMB -->
         </div>

@@ -12,6 +12,7 @@ var UserPages = {
 			$('.panel-body').hide();
 			$('#pane-forgot-password').fadeIn(1000);
 			$('.login-screen').addClass('forgot-password');
+			$('#forgot-email').val('').focus();
 		});
 		$('.show-pane-create-account').click(function() {
 			$('.panel-body').hide();
@@ -22,7 +23,10 @@ var UserPages = {
 			$('.panel-body').hide();
 			$('#pane-login').fadeIn(1000);
 			$('.login-screen').removeClass('forgot-password create-account');
-		});
+            $('#email').val('').focus();
+            $('#senha').val('');
+            $('#loginTitle').html('Entrar no Sistema');
+        });
 	},
 
 	profile: function () {

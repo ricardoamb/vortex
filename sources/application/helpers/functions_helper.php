@@ -179,19 +179,19 @@ function set_message($id='msg',$title=null, $msg=null,$type='info')
     switch($type)
     {
         case 'success':
-            $vtx->session->set_flashdata($id,'<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><strong>'.$title.'</strong> '.$msg.'</div>');
+            $vtx->session->set_flashdata($id,'<div class="alert alert-success animated bounceIn" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><strong>'.$title.'</strong> '.$msg.'</div>');
             break;
         case 'info':
-            $vtx->session->set_flashdata($id,'<div class="alert alert-info" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><strong>'.$title.'</strong> '.$msg.'</div>');
+            $vtx->session->set_flashdata($id,'<div class="alert alert-info animated bounceIn" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><strong>'.$title.'</strong> '.$msg.'</div>');
             break;
         case 'warning':
-            $vtx->session->set_flashdata($id,'<div class="alert alert-warning" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><strong>'.$title.'</strong> '.$msg.'</div>');
+            $vtx->session->set_flashdata($id,'<div class="alert alert-warning animated bounceIt" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><strong>'.$title.'</strong> '.$msg.'</div>');
             break;
         case 'error':
-            $vtx->session->set_flashdata($id,'<div class="alert alert-danger" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><strong>'.$title.'</strong> '.$msg.'</div>');
+            $vtx->session->set_flashdata($id,'<div class="alert alert-danger animated bounceIn" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><strong>'.$title.'</strong> '.$msg.'</div>');
             break;
         default:
-            $vtx->session->set_flashdata($id,'<div class="alert alert-info" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><strong>'.$title.'</strong> '.$msg.'</div>');
+            $vtx->session->set_flashdata($id,'<div class="alert alert-info animated bounceIn" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><strong>'.$title.'</strong> '.$msg.'</div>');
             break;
     }
 }

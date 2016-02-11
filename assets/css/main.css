@@ -53,3 +53,19 @@ body.login{
     border: none;
     background: rgba(50, 50, 50 ,1)
 }
+
+.message{
+    width: 430px!important;
+    height: 200px !important;
+    position:absolute;
+    z-index: 1200;
+    bottom:0px;
+    right:30px;
+}
+.message-inner{
+    width:370px !important;
+    padding-right: 30px;
+}
+.message-close{
+    margin-top: -5px !important;
+}

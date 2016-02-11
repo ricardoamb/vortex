@@ -8,7 +8,7 @@
             <div class="inputer">
                 <div class="input-wrapper">
                     <div class="login-error login-error-email pull-right" id="email-error"></div>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Login / E-mail" autocomplete="off">
+                    <input class="form-control" name="email" id="email" placeholder="Login / E-mail" autocomplete="off">
                 </div>
             </div>
         </div><!-- end email form-group-->

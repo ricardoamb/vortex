@@ -40,7 +40,6 @@ class Login extends CI_Controller {
                     'user_status' => 'logged'
                 );
                 $this->session->set_userdata($data);
-                set_message('dashMessage','Sucesso!','Mensagem enviada corretamente.','error');
                 echo $this->session->userdata('user_status');
             }
             else
@@ -68,6 +67,32 @@ class Login extends CI_Controller {
         {
             $this->session->sess_destroy();
             echo 'error';
+        }
+    }
+
+    public function recovery()
+    {
+        $this->form_validation->set_rules('forgot-email','E-mail','trim|required|valid_email|strtolower');
+        if($this->form_validation->run() == true)
+        {
+            $email = $this->input->post('email');
+            $query = $this->login_mdl->get_user($email,'email');
+            if($query->num_rows() == 1)
+            {
+                $new_password = substr(str_shuffle('abcdefghijklmnopqrstuvxwyz123456789'),6);
+                $mensagem = '<p>Você solicitou uma nova senha no Sistema Vortex.</p><p>Su nova senha de acesso é: '.. $new_password. '</p><p>Qualquer dúvida entre em contato através de nosso canais de comunicação.</p>';
+                if($this->vortex->send_mail($email,'Nova Senha de Acesso',$mensagem))
+                {
+
+                }else
+                {
+
+                }
+            }
+            else
+            {
+                echo false;
+            }
         }
     }
 

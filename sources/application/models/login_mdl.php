@@ -41,5 +41,6 @@ class Login_mdl extends CI_Model {
             return false;
         }
     }
+
 }
 

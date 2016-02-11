@@ -37,6 +37,6 @@
     </div><!-- end form-buttons-->
     <div class="form-buttons clearfix">
         <button type="submit" class="btn btn-white pull-left show-pane-login">Cancelar</button>
-        <button type="submit" class="btn btn-success pull-right">Cadastrar</button>
+        <button type="submit" class="btn btn-primary pull-right">Cadastrar</button>
     </div><!--.form-buttons-->
 </div><!--#login.panel-body-->

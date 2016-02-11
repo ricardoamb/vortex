@@ -6,9 +6,14 @@ $(document).ready(function(){
     $('.messages').perfectScrollbar();
     $('#notifications').perfectScrollbar();
     $('#settings').perfectScrollbar();
+    var loginTitle = $('#loginTitle');
+
+
+    $('#email').val('').focus();
+    $('#senha').val('');
+    $('#loginTitle').html('Entrar no Sistema');
 
     var btnLogin = $('#btn-login');
-    var loginTitle = $('#loginTitle');
     var loginSrc = $('.login-screen');
 
     $(btnLogin).click(function(){
@@ -44,6 +49,7 @@ $(document).ready(function(){
                             {
                                 position: "top right",
                                 width: $(window).width(),
+                                delay: 5000,
                                 title: 'Login / E-Mail Incorreto',
                                 msg: 'O Login / E-mail digitado não corresponde a um usuário válido. Verifique e tente novamente!'
                             }
@@ -60,6 +66,7 @@ $(document).ready(function(){
                             {
                                 position: "top right",
                                 width: $(window).width(),
+                                delay: 5000,
                                 title: 'Senha Incorreta',
                                 msg: 'A Senha digitada está incorreta. Verifique e tente novamente!'
                             }
@@ -74,6 +81,7 @@ $(document).ready(function(){
                             {
                                 position: "top right",
                                 width: $(window).width(),
+                                delay: 5000,
                                 title: 'Usuário Inativo',
                                 msg: 'Você não ativou sua conta por favor verifique seu e-mail e tente novamente'
                             }
@@ -91,9 +99,86 @@ $(document).ready(function(){
         }
     });
 
-    $('#login-form').submit(function(){
-        return false;
-    });
+    var forgotMail = $('#forgot-email');
+    var btnRecovery = $('.recovery-login');
+    $('.recovery-login').click(function(){
+        if($(forgotMail).val() != "")
+        {
+            var filter = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+            if(filter.test(forgotMail.val()))
+            {
+                $.ajax({
+                    method: "POST",
+                    url: "login/recovery",
+                    data: {
+                        email: $(forgotMail).val(),
+                    },
+                    beforeSend: function(){
+                        $(btnRecovery).html('<i class="fa fa-spinner fa-pulse fa-lg"></i>');
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status);
+                        alert(thrownError);
+                    }
+                }).done(function(recover){
+                    if(recover)
+                    {
+                        Lobibox.notify(
+                            'success',
+                            {
+                                position: "top right",
+                                width: $(window).width(),
+                                delay: false,
+                                title: 'NOVA SENHA ENVIADA EM SEU E-MAIL!',
+                                msg: 'Uma nova senha foi enviada para o e-mail: ' + $(forgotMail).val() + '. Verifique.'
+                            }
+                        );
+                    }
+                    else
+                    {
+                        Lobibox.notify(
+                            'error',
+                            {
+                                position: "top right",
+                                width: $(window).width(),
+                                delay: 5000,
+                                title: 'E-MAIL NÃO ENCONTRADO!',
+                                msg: 'O e-mail que você digitou não foi encontrado em nossa base de dados. Verifique.'
+                            }
+                        );
+                    }
+                });
+                return true;
+            } else {
+                Lobibox.notify(
+                    'error',
+                    {
+                        position: "top right",
+                        width: $(window).width(),
+                        delay: 5000,
+                        title: 'E-MAIL INVÁLIDO!',
+                        msg: 'O e-mail que você digitou não é um endereço de e-mail válido.'
+                    }
+                );
+                return false;
+            }
+        } else {
+            Lobibox.notify(
+                'error',
+                {
+                    position: "top right",
+                    width: $(window).width(),
+                    delay: 5000,
+                    title: 'E-MAIL NÃO DIGITADO!',
+                    msg: 'Digite seu endereço de e-mail.'
+                }
+            );
+            return false;
+        }
+    })
+
+    $('#login-form').submit(function(){ return false; });
+    $('#recovery-login-form').submit(function(){ return false; });
 
     $('.logout').click(function(){
         Lobibox.confirm({

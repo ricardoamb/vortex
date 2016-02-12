@@ -115,37 +115,59 @@ $(document).ready(function(){
                     },
                     beforeSend: function(){
                         $(btnRecovery).html('<i class="fa fa-spinner fa-pulse fa-lg"></i>');
-                    },
-                    error: function (xhr, ajaxOptions, thrownError) {
-                        alert(xhr.status);
-                        alert(thrownError);
                     }
-                }).done(function(recover){
-                    if(recover)
+                }).done(function(recover) {
+                    $('.recovery-login').html('Entrar');
+                    switch (recover)
                     {
-                        Lobibox.notify(
-                            'success',
-                            {
-                                position: "top right",
-                                width: $(window).width(),
-                                delay: false,
-                                title: 'NOVA SENHA ENVIADA EM SEU E-MAIL!',
-                                msg: 'Uma nova senha foi enviada para o e-mail: ' + $(forgotMail).val() + '. Verifique.'
-                            }
-                        );
-                    }
-                    else
-                    {
-                        Lobibox.notify(
-                            'error',
-                            {
-                                position: "top right",
-                                width: $(window).width(),
-                                delay: 5000,
-                                title: 'E-MAIL NÃO ENCONTRADO!',
-                                msg: 'O e-mail que você digitou não foi encontrado em nossa base de dados. Verifique.'
-                            }
-                        );
+                        case 'ok':
+                            Lobibox.notify(
+                                'success',
+                                {
+                                    position: "top right",
+                                    width: $(window).width(),
+                                    delay: false,
+                                    title: 'NOVA SENHA ENVIADA EM SEU E-MAIL!',
+                                    msg: 'Uma nova senha foi enviada para o e-mail: ' + $(forgotMail).val() + '. Verifique.'
+                                }
+                            );
+                            break;
+                        case 'errorEmail':
+                            Lobibox.notify(
+                                'error',
+                                {
+                                    position: "top right",
+                                    width: $(window).width(),
+                                    delay: 5000,
+                                    title: 'NOVA SENHA NÃO ENVIADA',
+                                    msg: 'Ocorreu um erro no envio da nova senha. Tente novamente.'
+                                }
+                            );
+                            break;
+                        case 'errorNoEmail':
+                            Lobibox.notify(
+                                'error',
+                                {
+                                    position: "top right",
+                                    width: $(window).width(),
+                                    delay: 5000,
+                                    title: 'E-MAIL NÃO ENCONTRADO!',
+                                    msg: 'O e-mail que você digitou não foi encontrado em nossa base de dados. Verifique.'
+                                }
+                            );
+                            break;
+                        default:
+                            Lobibox.notify(
+                                'error',
+                                {
+                                    position: "top right",
+                                    width: $(window).width(),
+                                    delay: 5000,
+                                    title: 'ERRO NOS DADOS!',
+                                    msg: 'Ocorreu um erro inesperado no envio dos dados para o servidor remoto. Tente novamente.'
+                                }
+                            );
+                            break;
                     }
                 });
                 return true;

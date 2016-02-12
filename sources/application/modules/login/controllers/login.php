@@ -72,27 +72,32 @@ class Login extends CI_Controller {
 
     public function recovery()
     {
-        $this->form_validation->set_rules('forgot-email','E-mail','trim|required|valid_email|strtolower');
+        $this->form_validation->set_rules('email','E-mail','required');
         if($this->form_validation->run() == true)
         {
             $email = $this->input->post('email');
             $query = $this->login_mdl->get_user($email,'email');
             if($query->num_rows() == 1)
             {
-                $new_password = substr(str_shuffle('abcdefghijklmnopqrstuvxwyz123456789'),6);
-                $mensagem = '<p>Você solicitou uma nova senha no Sistema Vortex.</p><p>Su nova senha de acesso é: '.. $new_password. '</p><p>Qualquer dúvida entre em contato através de nosso canais de comunicação.</p>';
-                if($this->vortex->send_mail($email,'Nova Senha de Acesso',$mensagem))
+                $new_password = substr(str_shuffle('abcdefghijklmnopqrstuvxwyz123456789'),0,6);
+                $mensagem = '<p>Você solicitou uma nova senha no Sistema Vortex.</p><p>Sua nova senha de acesso é: '. $new_password. '</p><p>Qualquer dúvida entre em contato através de nosso canais de comunicação.</p>';
+                if($this->vortex->send_mail($email,'Nova Senha de Acesso',$mensagem) == true)
                 {
-
+                    $data['senha'] = md5($new_password);
+                    if($this->login_mdl->update($data,array('email'=>$email))){ echo 'ok'; }else{echo 'notUpdate';}
                 }else
                 {
-
+                    echo 'erroEmail';
                 }
             }
             else
             {
-                echo false;
+                echo 'errorNoEmail';
             }
+        }
+        else
+        {
+            echo 'error dumb';
         }
     }
 

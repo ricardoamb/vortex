@@ -42,5 +42,14 @@ class Login_mdl extends CI_Model {
         }
     }
 
+    public function update($data=null,$cond=null)
+    {
+        if($data!=null && isarray($cond))
+        {
+            $this->db->update('vtx_users',$data,$cond);
+            return true;
+        }
+    }
+
 }
 

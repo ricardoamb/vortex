@@ -111,7 +111,7 @@ $(document).ready(function(){
                     method: "POST",
                     url: "login/recovery",
                     data: {
-                        email: $(forgotMail).val(),
+                        email: $(forgotMail).val()
                     },
                     beforeSend: function(){
                         $(btnRecovery).html('<i class="fa fa-spinner fa-pulse fa-lg"></i>');
@@ -121,6 +121,12 @@ $(document).ready(function(){
                     switch (recover)
                     {
                         case 'ok':
+                            $('.panel-body').hide();
+                            $('#pane-login').fadeIn(1000);
+                            $('.login-screen').removeClass('forgot-password create-account');
+                            $('#email').val('').focus();
+                            $('#senha').val('');
+                            $('#loginTitle').html('Entrar no Sistema');
                             Lobibox.notify(
                                 'success',
                                 {
@@ -128,7 +134,7 @@ $(document).ready(function(){
                                     width: $(window).width(),
                                     delay: false,
                                     title: 'NOVA SENHA ENVIADA EM SEU E-MAIL!',
-                                    msg: 'Uma nova senha foi enviada para o e-mail: ' + $(forgotMail).val() + '. Verifique.'
+                                    msg: 'Uma nova senha foi enviada para o e-mail: ' + $(forgotMail).val() + '.<br> O e-mail pode demorar alguns minutos para chegar.'
                                 }
                             );
                             break;

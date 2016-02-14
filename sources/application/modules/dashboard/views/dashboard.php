@@ -10,4 +10,6 @@ echo '</div>' . PHP_EOL . '<!-- END CONTENT -->';
 
 if(is_logged(false)) include_once('includes/dashboard-down.php');
 
+include_once('includes/message.php');
+
 include_once('includes/footer.php');

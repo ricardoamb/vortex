@@ -80,11 +80,20 @@ class Login extends CI_Controller {
             if($query->num_rows() == 1)
             {
                 $new_password = substr(str_shuffle('abcdefghijklmnopqrstuvxwyz123456789'),0,6);
-                $mensagem = '<p>Você solicitou uma nova senha no Sistema Vortex.</p><p>Sua nova senha de acesso é: '. $new_password. '</p><p>Qualquer dúvida entre em contato através de nosso canais de comunicação.</p>';
-                if($this->vortex->send_mail($email,'Nova Senha de Acesso',$mensagem) == true)
+
+                $mensagem = '<h1>VORTEX</h1><h4>Nova Senha de Acesso</h4><p>Você solicitou uma nova senha no Sistema Vortex.</p><p>Sua nova senha de acesso é: '. $new_password. '</p><p>Qualquer dúvida entre em contato através de nosso canais de comunicação.</p>';
+
+                if($this->vortex->send_mail($email,'Nova Senha de Acesso',$mensagem) === true)
                 {
                     $data['senha'] = md5($new_password);
-                    if($this->login_mdl->update($data,array('email'=>$email))){ echo 'ok'; }else{echo 'notUpdate';}
+                    if($this->login_mdl->update($data,array('email'=>$email)))
+                    {
+                        echo 'ok';
+                    }
+                    else
+                    {
+                        echo 'notUpdate';
+                    }
                 }else
                 {
                     echo 'erroEmail';
@@ -100,5 +109,5 @@ class Login extends CI_Controller {
             echo 'error dumb';
         }
     }
-
+ //End of class
 }

@@ -88,7 +88,21 @@ $(document).ready(function(){
                         );
                         shake(loginSrc);
                         break;
-
+                    case 'error':
+                        Lobibox.notify(
+                            'error',
+                            {
+                                position: "top right",
+                                width: $(window).width(),
+                                delay: 5000,
+                                title: 'Login / E-Mail Incorreto',
+                                msg: 'O Login / E-mail digitado está incorreto. Tente Novamente!'
+                            }
+                        );
+                        $(loginTitle).html('<i class="fa fa-warning" style="margin-right:10px;"></i> Verifique os dados').addClass('errTitle');
+                        $(txtSenha).val('');
+                        $(txtLoginEmail).val('').focus();
+                        shake(loginSrc);
                 }
             });
         }
@@ -101,7 +115,7 @@ $(document).ready(function(){
 
     var forgotMail = $('#forgot-email');
     var btnRecovery = $('.recovery-login');
-    $('.recovery-login').click(function(){
+    $(btnRecovery).click(function(){
         if($(forgotMail).val() != "")
         {
             var filter = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
@@ -204,6 +218,13 @@ $(document).ready(function(){
             return false;
         }
     })
+
+    $(forgotMail).keypress(function(e) {
+        if(e.which == 13) {
+            $(btnRecovery).click();
+            return false;
+        }
+    });
 
     $('#login-form').submit(function(){ return false; });
     $('#recovery-login-form').submit(function(){ return false; });

@@ -128,6 +128,67 @@ $(document).ready(function(){
                         $(txtSenha).val('');
                         $(txtLoginEmail).val('').focus();
                         shake(loginSrc);
+                        break;
+                    case 'provLogin':
+                        $(btnLogin).html('Entrar');
+                        Lobibox.prompt('text',{
+                            buttons: {
+                                ok: {
+                                    'class': 'btn btn-blue-grey'
+                                }
+                            },
+                            title: "Senha Provisória",
+                            label: "Defina sua senha definitiva.",
+                            attrs: {
+                                type: "password",
+                                placeholder: "Nova Senha",
+                                name: "novaSenha",
+                                id: "novaSenha"
+                            },
+                            callback: function(){
+                                $.ajax({
+                                    method: "POST",
+                                    url: "login/redefine",
+                                    data: {
+                                        byField: 'login'
+                                        loginemail: $(txtLoginEmail).val(),
+                                        novaSenha: $(txtSenha).val()
+                                    },
+                                    beforeSend: function(){
+                                        $(btnLogin).html('<i class="fa fa-spinner fa-pulse fa-lg"></i>');
+                                    },
+                                    error: function (xhr, ajaxOptions, thrownError) {
+                                        alert(xhr.status);
+                                        alert(thrownError);
+                                    }
+                                })
+                            }
+                        });
+                        break;
+                    case 'provEmail':
+                        $(btnLogin).html('Entrar');
+                        Lobibox.prompt('text',{
+                            buttons: {
+                                ok: {
+                                    'class': 'btn btn-blue-grey'
+                                }
+                            },
+                            title: "Senha Provisória",
+                            label: "Defina sua senha definitiva.",
+                            attrs: {
+                                type: "password",
+                                placeholder: "Nova Senha",
+                                name: "novaSenha",
+                                id: "novaSenha"
+                            },
+                            callback: function(){
+                                alert($('#novaSenha').val());
+                            }
+                        });
+                        break;
+                    default:
+                        $(btnLogin).html('Entrar');
+                        break;
                 }
             });
         }
@@ -210,6 +271,7 @@ $(document).ready(function(){
                             );
                             break;
                         default:
+                            alert(recover);
                             Lobibox.notify(
                                 'error',
                                 {

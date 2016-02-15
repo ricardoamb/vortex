@@ -32,22 +32,8 @@ class Login extends CI_Controller {
             if($result == 'loggedLogin')
             {
                 $query = $this->login_mdl->get_user($login)->row();
-                $data = array(
-                    'user_id'     => $query->id,
-                    'user_name'   => $query->nome,
-                    'user_login'  => $query->login,
-                    'user_email'  => $query->email,
-                    'user_admin'  => $query->admin,
-                    'user_status' => 'logged'
-                );
-                $this->session->set_userdata($data);
-                echo $this->session->userdata('user_status');
-            }
-            else
-            {
-                if($result == 'loggedEmail')
+                if(!$query->provisoria == true)
                 {
-                    $query = $this->login_mdl->get_user($login,'email')->row();
                     $data = array(
                         'user_id'     => $query->id,
                         'user_name'   => $query->nome,
@@ -58,7 +44,37 @@ class Login extends CI_Controller {
                     );
                     $this->session->set_userdata($data);
                     echo $this->session->userdata('user_status');
-                }else{
+                }
+                else
+                {
+                    echo 'provLogin';
+                }
+            }
+            else
+            {
+                if($result == 'loggedEmail')
+                {
+                    $query = $this->login_mdl->get_user($login,'email')->row();
+                    if(!$query->provisoria == true)
+                    {
+                        $data = array(
+                            'user_id'     => $query->id,
+                            'user_name'   => $query->nome,
+                            'user_login'  => $query->login,
+                            'user_email'  => $query->email,
+                            'user_admin'  => $query->admin,
+                            'user_status' => 'logged'
+                        );
+                        $this->session->set_userdata($data);
+                        echo $this->session->userdata('user_status');
+                    }
+                    else
+                    {
+                        echo 'provEmail';
+                    }
+                }
+                else
+                {
                     $this->session->sess_destroy();
                     echo $result;
                 }
@@ -71,6 +87,9 @@ class Login extends CI_Controller {
         }
     }
 
+    /**
+     *
+     */
     public function recovery()
     {
         $this->form_validation->set_rules('email','E-mail','required');
@@ -80,13 +99,19 @@ class Login extends CI_Controller {
             $query = $this->login_mdl->get_user($email,'email');
             if($query->num_rows() == 1)
             {
+                $row = $query->row();
                 $new_password = substr(str_shuffle('abcdefghijklmnopqrstuvxwyz123456789'),0,6);
-
-                $mensagem = '<h1>VORTEX</h1><h4>Nova Senha de Acesso</h4><p>Você solicitou uma nova senha no Sistema Vortex.</p><p>Sua nova senha de acesso é: '. $new_password. '</p><p>Qualquer dúvida entre em contato através de nosso canais de comunicação.</p>';
+                $data_email = array(
+                    'password' => $new_password,
+                    'nome' => $row->nome,
+                    'email' => $row->email
+                );
+                $mensagem = $this->load->view('layout/pages/emails/email_new_password',$data_email,true);
 
                 if($this->vortex->send_mail($email,'Nova Senha de Acesso',$mensagem) === true)
                 {
                     $data['senha'] = md5($new_password);
+                    $data['provisoria'] = true;
                     if($this->login_mdl->update($data,array('email'=>$email)))
                     {
                         echo 'ok';
@@ -95,7 +120,8 @@ class Login extends CI_Controller {
                     {
                         echo 'notUpdate';
                     }
-                }else
+                }
+                else
                 {
                     echo 'erroEmail';
                 }
@@ -109,6 +135,14 @@ class Login extends CI_Controller {
         {
             echo 'error dumb';
         }
+    }
+
+    public function redefine()
+    {
+        $novaSenha = $this->input->post('novaSenha');
+        $login
+        //$data['senha'] = md5($novaSenha);
+        //$this->login_mdl->update($data,array('email'=>$email))
     }
 
     public function register()

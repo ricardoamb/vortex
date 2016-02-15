@@ -1,19 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600,700,400,300);
-/* 
-    Created on : Mar 19, 2014, 9:48:25 AM
-    Author     : @arboshiki
-*/
-/* 
-    Created on : Sep 19, 2014, 1:47:13 PM
-    Author     : @arboshiki
-*/
-/*
-    Author      : @arboshiki
-*/
-/* 
-    Created on : Aug 11, 2014, 5:14:12 PM
-    Author     : @arboshiki
-*/
+
 .animated-super-fast {
   -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
@@ -380,15 +366,15 @@ body.lobibox-open {
   border: none;
 }
 .lobibox.lobibox-prompt .lobibox-header {
-  color: #eeeeee;
-  background-color: #3c2d2d;
+  color: #FFF;
+  background-color: #4B4B4D;
 }
 .lobibox.lobibox-prompt .lobibox-body {
   padding: 20px;
 }
 .lobibox.lobibox-prompt .lobibox-body .lobibox-input {
   min-height: 38px;
-  border: 1px solid #21cb91;
+  border: 1px solid #CCC;
   width: 100%;
   padding: 5px;
   font-size: 18px;
@@ -398,7 +384,8 @@ body.lobibox-open {
   background-color: #eeeeee;
 }
 .lobibox.lobibox-prompt .lobibox-footer {
-  background-color: #594343;
+  background-color: #FFF;
+  padding-bottom:10px;
 }
 .lobibox.lobibox-progress .lobibox-header {
   background-color: #2f5d6d;

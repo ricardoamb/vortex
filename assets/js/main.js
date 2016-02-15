@@ -150,9 +150,9 @@ $(document).ready(function(){
                                     method: "POST",
                                     url: "login/redefine",
                                     data: {
-                                        byField: 'login'
+                                        byField: 'login',
                                         loginemail: $(txtLoginEmail).val(),
-                                        novaSenha: $(txtSenha).val()
+                                        novaSenha: $('#novaSenha').val()
                                     },
                                     beforeSend: function(){
                                         $(btnLogin).html('<i class="fa fa-spinner fa-pulse fa-lg"></i>');
@@ -161,7 +161,9 @@ $(document).ready(function(){
                                         alert(xhr.status);
                                         alert(thrownError);
                                     }
-                                })
+                                }).done(function(data){
+                                    testredefine(data);
+                                });
                             }
                         });
                         break;
@@ -182,7 +184,24 @@ $(document).ready(function(){
                                 id: "novaSenha"
                             },
                             callback: function(){
-                                alert($('#novaSenha').val());
+                                $.ajax({
+                                    method: "POST",
+                                    url: "login/redefine",
+                                    data: {
+                                        byField: 'email',
+                                        loginemail: $(txtLoginEmail).val(),
+                                        novaSenha: $('#novaSenha').val()
+                                    },
+                                    beforeSend: function(){
+                                        $(btnLogin).html('<i class="fa fa-spinner fa-pulse fa-lg"></i>');
+                                    },
+                                    error: function (xhr, ajaxOptions, thrownError) {
+                                        alert(xhr.status);
+                                        alert(thrownError);
+                                    }
+                                }).done(function(data){
+                                    testredefine(data);
+                                });
                             }
                         });
                         break;
@@ -198,6 +217,46 @@ $(document).ready(function(){
             $(loginTitle).html('<i class="fa fa-warning" style="margin-right:10px;"></i> Verifique os dados').addClass('errTitle');
         }
     });
+
+    function testredefine(data){
+        var txtLoginEmail = $('#email');
+        var txtSenha = $('#senha');
+        switch (data)
+        {
+            case 'ok':
+                Lobibox.notify(
+                    'success',
+                    {
+                        position: "top right",
+                        width: $(window).width(),
+                        delay: false,
+                        title: 'SUA SENHA FOI REGISTRADA',
+                        msg: 'Sua nova senha foi registrada com sucesso. Realize o login com ela!'
+                    }
+                );
+                $(btnLogin).html('Entrar');
+                $(loginTitle).html('<i class="fa fa-warning" style="margin-right:10px;"></i> Verifique os dados').addClass('errTitle');
+                $(txtSenha).val('');
+                $(txtLoginEmail).val('').focus();
+                break;
+            case 'error':
+                Lobibox.notify(
+                    'error',
+                    {
+                        position: "top right",
+                        width: $(window).width(),
+                        delay: 5000,
+                        title: 'SENHA NÃO REDEFINIDA',
+                        msg: 'Ocorreu um erro ao redefinir a senha, por favor, tente novamente.'
+                    }
+                );
+                $(btnLogin).html('Entrar');
+                $(loginTitle).html('<i class="fa fa-warning" style="margin-right:10px;"></i> Verifique os dados').addClass('errTitle');
+                $(txtSenha).val('');
+                $(txtLoginEmail).val('').focus();
+                break;
+        }
+    }
 
     /////                        /////
     /////                        /////

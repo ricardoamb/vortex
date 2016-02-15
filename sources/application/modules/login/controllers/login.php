@@ -16,7 +16,6 @@ class Login extends CI_Controller {
         set_theme('content', load_module('login','login'));
         set_theme('bodyClass','login bg-login printable');
         set_theme('pluginsJS',load_javascript(array('user-pages','initialize-login')),false);
-        set_theme('pluginsCSS',load_style(array('bootstrap-social')),false);
         load_template();
     }
 
@@ -139,10 +138,24 @@ class Login extends CI_Controller {
 
     public function redefine()
     {
+        $byField = $this->input->post('byField');
+        $loginEmail = $this->input->post('loginemail');
         $novaSenha = $this->input->post('novaSenha');
-        $login
-        //$data['senha'] = md5($novaSenha);
-        //$this->login_mdl->update($data,array('email'=>$email))
+        $data['senha'] = md5($novaSenha);
+        $data['provisoria'] = 0;
+        if($byField == 'login')
+        {
+            $result = $this->login_mdl->update($data,array('login'=>$loginEmail));
+        }
+        else if($byField == 'email')
+        {
+            $result = $this->login_mdl->update($data,array('email'=>$loginEmail));
+        }
+        if($result){
+            echo 'ok';
+        }else{
+            echo 'error';
+        }
     }
 
     public function register()

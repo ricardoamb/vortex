@@ -52,9 +52,9 @@ function initialize($instance='dashboard')
             set_theme('bodyClass','theme-grey',false);
             set_theme('template','dashboard/dashboard');
             // Style
-            set_theme('headerIncludes',load_style(array('bootstrap.min','font-awesome.min','ionicons.min','perfect-scrollbar.min','main')),false);
+            set_theme('headerIncludes',load_style(array('bootstrap.min','font-awesome.min','ionicons.min','perfect-scrollbar.min')),false);
             set_theme('coreCSS',load_style(array('admin','elements')),false);
-            set_theme('pluginsCSS',load_style(array('plugins','lobibox','animate')),false);
+            set_theme('pluginsCSS',load_style(array('plugins','lobibox','animate','bootstrap-social','main')),false);
             set_theme('shortcutIcon',load_icon());
             set_theme('touchIcon',load_icon('apple-touch-icon','apple-touch-icon','png'));
             // javascript

@@ -21,7 +21,6 @@ class Logout extends CI_Controller
             'user_status' => ''
         ));
         $this->session->sess_destroy();
-        set_message('message','nunca diga nunca','apesar de dizer duas vezes','error');
         redirect(base_url());
     }
 

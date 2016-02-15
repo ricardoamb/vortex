@@ -2,7 +2,7 @@
 <form id="login-form" accept-charset="utf-8" novalidate>
     <div id="pane-login" class="panel-body active"><!-- login.panel-body -->
 
-        <h2 id="loginTitle">Entrar no Sistema</h2><!-- login title -->
+        <h2 id="loginTitle" class="titleForm">Entrar no Sistema</h2><!-- login title -->
 
         <div class="form-group"><!-- email form-group-->
             <div class="inputer">
@@ -27,12 +27,12 @@
                 <input type="checkbox" id="checkboxRemember" value="remember">
                 <label for="checkboxRemember">Lembrar de mim</label>
             </div>
-            <button id="btn-login" class="btn btn-error pull-right">Entrar</button>
+            <button id="btn-login" class="btn btn-blue-grey pull-right">Entrar</button>
         </div><!-- end form-buttons-->
 
-        <ul class="extra-links">
+        <ul class="extra-links" style="margin-top:35px !important;">
             <li><a class="show-pane-forgot-password" style="cursor: pointer;">Esqueci a senha</a></li>
-            <li><a class="show-pane-create-account" style="cursor: pointer;">Não sou registrado</a></li>
+            <li><a class="show-pane-create-account" style="cursor: pointer;margin-top:5px;">Não sou registrado</a></li>
         </ul>
 
     </div><!-- end login.panel-body -->

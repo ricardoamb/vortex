@@ -16,6 +16,7 @@ class Login extends CI_Controller {
         set_theme('content', load_module('login','login'));
         set_theme('bodyClass','login bg-login printable');
         set_theme('pluginsJS',load_javascript(array('user-pages','initialize-login')),false);
+        set_theme('pluginsCSS',load_style(array('bootstrap-social')),false);
         load_template();
     }
 

@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
+
 #btn-login{
     width: 100px;
 }
@@ -8,15 +10,29 @@ p    {color:white}
     box-shadow: 0 0 20px #FF0000 !important;
 }
 
+.titleForm{
+    color:#FFF !important;
+    font: 22px Roboto !important;
+    font-weight: 300 !important;
+}
+
 .errTitle{
-    color:#FF0000 !important;
-    font-weight: bold;
+    color:#FFF !important;
+    font: 22px Roboto !important;
+    font-weight: 300 !important;
 }
 
 body.login{
     background: url("../img/large/lock.jpg") no-repeat fixed;
     background-size: cover;
     overflow: hidden;
+}
+
+.message-form{
+    color:#FFF !important;
+    font: 14px Roboto !important;
+    font-weight: 300 !important;
+    text-align: center;
 }
 
 .hover-panel{
@@ -30,11 +46,6 @@ body.login{
     left: 0;
     z-index: 9999;
     display: none;
-}
-
-.forgot-message{
-    font: 12px Helvetica;
-    text-align: center;
 }
 
 .nav-user .user{
@@ -68,4 +79,23 @@ body.login{
 }
 .message-close{
     margin-top: -5px !important;
+}
+
+.extra-links a{
+    color: #57a8b7 !important;
+    font: 18px Roboto;
+    font-weight: 300;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.extra-links a:hover{
+    color: #FFF !important;
+    text-decoration: none;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+.panel-login input{
+    font-family: Roboto;
+    font-weight: 300;
 }

@@ -25,10 +25,3 @@
         <feGaussianBlur stdDeviation='7' />
     </filter>
 </svg>
-<?php
-    switch ($this->uri->segment(3))
-    {
-        case ('logoff'):
-            echo '<span id="message" data-status="true" data-msgTitle="Você saiu do sistema!"  data-msg="Você realizou o logoff com sucesso. <br>Esperamos você em breve!" data-type="success"></span>';
-    }
-?>

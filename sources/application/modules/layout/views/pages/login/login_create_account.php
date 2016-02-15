@@ -9,28 +9,28 @@
         <div class="form-group">
             <div class="inputer">
                 <div class="input-wrapper">
-                    <input type="text" class="form-control" name="ca-nome" id="ca-nome" placeholder="Nome" autocomplete="off">
+                    <input type="text" class="form-control ca-input" name="ca-nome" id="ca-nome" placeholder="Nome" autocomplete="off">
                 </div>
             </div>
         </div>
         <div class="form-group">
             <div class="inputer">
                 <div class="input-wrapper">
-                    <input type="text" class="form-control" name="ca-login" id="ca-login" placeholder="Login" autocomplete="off">
+                    <input type="text" class="form-control ca-input" name="ca-login" id="ca-login" placeholder="Login" autocomplete="off">
                 </div>
             </div>
         </div>
         <div class="form-group">
             <div class="inputer">
                 <div class="input-wrapper">
-                    <input type="email" class="form-control" name="ca-email" id="ca-email" placeholder="Digite seu e-mail" autocomplete="off">
+                    <input type="email" class="form-control ca-input" name="ca-email" id="ca-email" placeholder="Digite seu e-mail" autocomplete="off">
                 </div>
             </div>
         </div>
         <div class="form-group">
             <div class="inputer">
                 <div class="input-wrapper">
-                    <input type="email" class="form-control" name="ca-email-confirm" id="ca-email-confirm" placeholder="Confirme o e-mail" autocomplete="off">
+                    <input type="email" class="form-control ca-input" name="ca-email-confirm" id="ca-email-confirm" placeholder="Confirme o e-mail" autocomplete="off">
                 </div>
             </div>
         </div>

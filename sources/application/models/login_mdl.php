@@ -73,5 +73,25 @@ class Login_mdl extends CI_Model
         }
     }
 
+    public function get_auth($email=null)
+    {
+        if($email != null)
+        {
+            $query = $this->db->get_where('vtx_auth_emails', array('email' => $email));
+            if($query->num_rows() == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }
 

@@ -272,6 +272,7 @@ $(document).ready(function(){
         var caLogin = $('#ca-login');
         var caEmail = $('#ca-email');
         var caEmailConfirm = $('#ca-email-confirm');
+        var validEmail = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
         var caError = 0;
         var caErMessage = '';
         if($(caNome).val() == ''){
@@ -285,6 +286,16 @@ $(document).ready(function(){
                 caErMessage += '<i class="fa fa-arrow-right"></i> O campo <strong>Login</strong> é obrigatório.';
             }
             caError = caError + 1;
+        }else{
+            var loginLogic = /^[a-zA-Z0-9]+$/;
+            if(!loginLogic.test($(caLogin).val())){
+                if(caError > 0){
+                    caErMessage += '<br><i class="fa fa-arrow-right"></i> O campo <strong>Login</strong> não pode possuir espaços ou caracteres especiais. Somente letras e números.';
+                }else{
+                    caErMessage += '<i class="fa fa-arrow-right"></i>  O campo <strong>Login</strong> não pode possuir espaços ou caracteres especiais. Somente letras e números.';
+                }
+                caError = caError + 1;
+            }
         }
         if($(caEmail).val() == ''){
             if(caError > 0){
@@ -293,6 +304,15 @@ $(document).ready(function(){
                 caErMessage += '<i class="fa fa-arrow-right"></i> O campo <strong>E-mail</strong> é obrigatório.';
             }
             caError = caError + 1;
+        }else{
+            if(!validEmail.test($(caEmail).val())){
+                if(caError > 0){
+                    caErMessage += '<br><i class="fa fa-arrow-right"></i> O campo <strong>E-mail</strong> não é um endereço de e-mail válido.';
+                }else{
+                    caErMessage += '<i class="fa fa-arrow-right"></i> O campo <strong>E-mail</strong> não é um endereço de e-mail válido.';
+                }
+                caError = caError + 1;
+            }
         }
         if($(caEmailConfirm).val() == ''){
             if(caError > 0){
@@ -302,13 +322,22 @@ $(document).ready(function(){
             }
             caError = caError + 1;
         }else{
-            if(caEmailConfirm != caEmail){
+            if($(caEmailConfirm).val() != $(caEmail).val()){
                 if(caError > 0){
                     caErMessage += '<br><i class="fa fa-arrow-right"></i> O campo <strong>E-mail</strong> não é igual ao campo <strong>Confirmação de E-mail</strong>.';
                 }else{
                     caErMessage += '<i class="fa fa-arrow-right"></i> O campo <strong>E-mail</strong> não é igual ao campo <strong>Confirmação de E-mail</strong>.';
                 }
                 caError = caError + 1;
+            }else{
+                if(!validEmail.test($(caEmailConfirm).val())){
+                    if(caError > 0){
+                        caErMessage += '<br><i class="fa fa-arrow-right"></i> O campo <strong>Confirmação de E-mail</strong> não é um endereço de e-mail válido.';
+                    }else{
+                        caErMessage += '<i class="fa fa-arrow-right"></i> O campo <strong>Confirmação de E-mail</strong> não é um endereço de e-mail válido.';
+                    }
+                    caError = caError + 1;
+                }
             }
         }
         if(caError > 0)
@@ -325,7 +354,89 @@ $(document).ready(function(){
             );
             shake(loginSrc);
         }else{
-            // Send Form via Ajax
+            $.ajax({
+                method: "POST",
+                url: "login/register",
+                data: {
+                    nome: $(caNome).val(),
+                    login: $(caLogin).val(),
+                    email: $(caEmail).val(),
+                    emailConfirm: $(caEmailConfirm).val()
+                },
+                beforeSend: function(){
+                    $(createAccountButton).html('<i class="fa fa-spinner fa-pulse fa-lg"></i>');
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            }).done(function(data) {
+                $(createAccountButton).html('Cadastrar');
+                switch (data) {
+                    case 'login':
+                        Lobibox.notify(
+                            'error',
+                            {
+                                position: "top right",
+                                width: $(window).width(),
+                                delay: 5000,
+                                title: 'LOGIN EXISTENTE',
+                                msg: 'O escolhido já está cadastrado, por favor, escolha outro.'
+                            }
+                        );
+                        shake(loginSrc);
+                        break;
+                    case 'email':
+                        Lobibox.notify(
+                            'error',
+                            {
+                                position: "top right",
+                                width: $(window).width(),
+                                delay: 5000,
+                                title: 'E-MAIL JÁ CADASTRADO',
+                                msg: 'O e-mail digitado á está cadastrado, por favor, realize o login.'
+                            }
+                        );
+                        shake(loginSrc);
+                        break;
+                    case 'noAuth':
+                        var noAuthMsg = 'O Usuário cadastrado não possui autorização prévia para usar o sistema.<br>';
+                        noAuthMsg += 'O cadastro será efetuado mas o login não será liberado.<br>';
+                        noAuthMsg += 'Aguarde a aprovação de um administrador do sistema.<br>';
+                        Lobibox.notify(
+                            'info',
+                            {
+                                position: "top right",
+                                width: $(window).width(),
+                                delay: false,
+                                title: 'USUÁRIO NÃO AUTORIZADO',
+                                msg: noAuthMsg
+                            }
+                        );
+                        shake(loginSrc);
+                        break;
+                    case 'auth':
+                        Lobibox.notify(
+                            'info',
+                            {
+                                position: "top right",
+                                width: $(window).width(),
+                                delay: 5000,
+                                title: 'USUÁRIO AUTORIZADO',
+                                msg: 'Esse usuário está autorizado e o registro se dará em procedimento.'
+                            }
+                        );
+                        shake(loginSrc);
+                        break;
+                }
+            });
+        }
+    });
+
+    $('.ca-input').keypress(function(e){
+        if(e.which == 13) {
+            $(createAccountButton).click();
+            return false;
         }
     });
 

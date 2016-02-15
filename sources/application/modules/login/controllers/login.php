@@ -110,5 +110,50 @@ class Login extends CI_Controller {
             echo 'error dumb';
         }
     }
- //End of class
+
+    public function register()
+    {
+        $this->form_validation->set_rules('nome','Nome','required');
+        $this->form_validation->set_rules('login','Login','required');
+        $this->form_validation->set_rules('email','E-mail','required');
+        $this->form_validation->set_rules('emailConfirm','Confirmação de E-mail','required');
+        if($this->form_validation->run())
+        {
+            $nome = $this->input->post('nome');
+            $login = $this->input->post('login');
+            $email = $this->input->post('email');
+            $emailConfirm = $this->input->post('emailConfirm');
+            $token = md5(uniqid(rand(), true));
+            $data = time();
+            $query_login = $this->login_mdl->get_user($login);
+            if($query_login->num_rows() > 0){
+                echo 'login';
+            }
+            else
+            {
+                $query_email = $this->login_mdl->get_user($email,'email');
+                if($query_email->num_rows() > 0)
+                {
+                    echo 'email';
+                }
+                else
+                {
+                    if($this->login_mdl->get_auth($email))
+                    {
+                        // Default Register
+                        echo 'auth';
+                    }
+                    else
+                    {
+                        // No auth register
+                        echo 'noAuth';
+                    }
+                }
+            }
+        }
+        else
+        {
+            echo 'validation';
+        }
+    }
 }

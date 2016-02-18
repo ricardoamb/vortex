@@ -27,7 +27,7 @@
                 <input type="checkbox" id="checkboxRemember" value="remember">
                 <label for="checkboxRemember">Lembrar de mim</label>
             </div>
-            <button id="btn-login" class="btn btn-blue-grey pull-right">Entrar</button>
+            <button id="btn-login" class="btn btn-blue-grey pull-right btn-login-page">Entrar</button>
         </div><!-- end form-buttons-->
 
         <ul class="extra-links" style="margin-top:35px !important;">

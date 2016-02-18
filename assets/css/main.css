@@ -1,101 +1,14 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
-
-#btn-login{
-    width: 100px;
-}
-
-p    {color:white}
-
-.err{
-    box-shadow: 0 0 20px #FF0000 !important;
-}
-
-.titleForm{
-    color:#FFF !important;
-    font: 22px Roboto !important;
-    font-weight: 300 !important;
-}
-
-.errTitle{
-    color:#FFF !important;
-    font: 22px Roboto !important;
-    font-weight: 300 !important;
-}
-
-body.login{
-    background: url("../img/large/lock.jpg") no-repeat fixed;
-    background-size: cover;
-    overflow: hidden;
-}
-
-.message-form{
-    color:#FFF !important;
-    font: 14px Roboto !important;
-    font-weight: 300 !important;
-    text-align: center;
-}
-
-.hover-panel{
-    width: 100%;
-    height: 100%;
-    background: url('../img/large/lock.jpg') fixed no-repeat;
-    background-size: cover;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    display: none;
-}
-
-.nav-user .user{
-    margin:0;
-}
-
-.btn-danger.logout{
-    border-radius:50px;
-    padding:7px 12px 5px 12px;
-    box-shadow: none;
-    margin-left:10px;
-    border:none;
-    background: rgba(80, 80, 80 ,1)
-}
-.btn-danger.logout:hover{
-    border: none;
-    background: rgba(50, 50, 50 ,1)
-}
-
-.message{
-    width: 430px!important;
-    height: 200px !important;
-    position:absolute;
-    z-index: 1200;
-    bottom:0px;
-    right:30px;
-}
-.message-inner{
-    width:370px !important;
-    padding-right: 30px;
-}
-.message-close{
-    margin-top: -5px !important;
-}
-
-.extra-links a{
-    color: #57a8b7 !important;
-    font: 18px Roboto;
-    font-weight: 300;
-    -webkit-transition: all .5s;
-    transition: all .5s;
-}
-
-.extra-links a:hover{
-    color: #FFF !important;
-    text-decoration: none;
-    -webkit-transition: all .5s;
-    transition: all .5s;
-}
-.panel-login input{
-    font-family: Roboto;
-    font-weight: 300;
-}
+.btn-login-page{min-width:100px;}
+p{color:white}
+.titleForm{color:#FFF !important;font: 22px Roboto, Helvetica, Sans-Serif !important;}
+.errTitle{color:#FFF !important;font:22px Roboto, Helvetica !important;}
+body.login{background: url("../img/large/lock.jpg") no-repeat fixed;background-size:cover;overflow:hidden;}
+.message-form{color:#FFF !important;font:14px Roboto, Helvetica, sans-serif !important;font-weight:100 !important;text-align: center;}
+.hover-panel{width: 100%;height: 100%;background: url('../img/large/lock.jpg') fixed no-repeat;background-size:cover;display: block;position: absolute;top: 0;left: 0;z-index: 9999;display: none;}
+.nav-user .user{margin:0;}
+.btn-danger.logout{border-radius:50px;padding:7px 12px 5px 12px;box-shadow: none;margin-left:10px;border:none;background: rgba(80, 80, 80 ,1)}
+.btn-danger.logout:hover{border: none;background: rgba(50, 50, 50 ,1)}
+.extra-links a{color: #57a8b7 !important;font: 18px Roboto, Helvetica, sans-serif;font-weight: 300;-webkit-transition:all .5s;transition: all .5s;}
+.extra-links a:hover{color: #FFF !important;text-decoration: none;-webkit-transition:all .5s;transition:all .5s;}
+.panel-login input{font-family: Roboto, Helvetica, sans-serif;font-weight: 300;}
+.menu-icon{margin-right:10px;}

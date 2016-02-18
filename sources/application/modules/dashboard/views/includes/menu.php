@@ -2,13 +2,13 @@
 <div class="menu-layer">
     <ul>
         <li>
-            <a href="index.html">Dashboard</a>
+            <a href="index.html"><i class="fa fa-gears fa-lg menu-icon"></i> Dashboard</a>
         </li>
         <li>
-            <a href="javascript:;">Cards</a>
+            <a href="javascript:;"><i class="fa fa-users fa-lg menu-icon"></i> Usuários</a>
             <ul class="child-menu">
-                <li><a href="cards-image.html">Image Cards</a></li>
-                <li><a href="cards-audio.html">Audio Cards</a></li>
+                <li><a href="cards-image.html"><i class="fa fa-plus fa-lg menu-icon"></i> Novo Usuário</a></li>
+                <li><a href="cards-audio.html"><i class="fa fa-list fa-lg menu-icon"></i> Usuários</a></li>
                 <li><a href="cards-video.html">Video Cards</a></li>
                 <li><a href="cards-clickable.html">Clickable Cards</a></li>
             </ul>

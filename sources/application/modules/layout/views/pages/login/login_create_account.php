@@ -40,10 +40,9 @@
                 <label for="checkboxTerms"><a href="#" style="color:white;">Eu concordo com os termos de serviço.</a></label>
             </div>
         </div>
-        <a class="btn btn-block btn-xs btn-social btn-facebook btn-ripple"><i class="fa fa-facebook"></i> Cadastre-se com o Facebook</a>
         <div class="form-buttons clearfix" style="margin-top:20px !important;">
-            <button type="submit" class="btn btn-white pull-left show-pane-login">Cancelar</button>
-            <button type="submit" id="create-account-button" class="btn btn-blue-grey pull-right">Cadastrar</button>
+            <button type="submit" class="btn btn-white pull-left show-pane-login btn-login-page">Cancelar</button>
+            <button type="submit" id="create-account-button" class="btn btn-blue-grey pull-right btn-login-page">Cadastrar</button>
         </div>
     </form>
 </div>

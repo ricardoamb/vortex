@@ -1,9 +1,9 @@
 <!-- BEGIN USER LAYER -->
 <div class="user-layer">
     <ul class="nav nav-tabs nav-justified" role="tablist">
-        <li class="active"><a href="#messages" data-toggle="tab">Messages</a></li>
-        <li><a href="#notifications" data-toggle="tab">Notifications <span class="badge">3</span></a></li>
-        <li><a href="#settings" data-toggle="tab">Settings</a></li>
+        <li class="active"><a href="#messages" data-toggle="tab">Chat Interno</a></li>
+        <li><a href="#notifications" data-toggle="tab">Notificações <span class="badge">3</span></a></li>
+        <li><a href="#settings" data-toggle="tab">Configurações</a></li>
     </ul>
 
     <div class="row no-gutters tab-content">
@@ -18,8 +18,8 @@
                                 <img src="<?php echo base_url('assets/img/faces'); ?>/1.jpg" class="face-radius" alt="">
                             </div>
                             <div class="list-content">
-                                <span class="title">Pari Subramanium</span>
-                                <span class="caption">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits.</span>
+                                <span class="title">Camila Campos</span>
+                                <span class="caption">Diretora Jurídica</span>
                             </div>
                             <div class="list-action-right">
                                 <span class="top">15 min</span>
@@ -34,7 +34,7 @@
                             </div>
                             <div class="list-content">
                                 <span class="title">Steve Jobs</span>
-                                <span class="caption">Dramatically visualize customer directed convergence without revolutionary ROI. Efficiently unleash cross-media information without cross-media value.</span>
+                                <span class="caption">CEO da Apple</span>
                             </div>
                             <div class="list-action-right">
                                 <span class="top">2 hr</span>
@@ -49,10 +49,10 @@
                             </div>
                             <div class="list-content">
                                 <span class="title">Bill Gates</span>
-                                <span class="caption">Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.</span>
+                                <span class="caption">CEO da Microsoft</span>
                             </div>
                             <div class="list-action-right">
-                                <span class="top">Yesterday</span>
+                                <span class="top">Ontem</span>
                                 <i class="ion-android-volume-off bottom"></i>
                             </div>
                         </a>
@@ -63,11 +63,11 @@
                                 <img src="<?php echo base_url('assets/img/faces'); ?>/2.jpg" class="face-radius" alt="">
                             </div>
                             <div class="list-content">
-                                <span class="title">Benjamin Beck</span>
-                                <span class="caption">Completely synergize resource sucking relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas.</span>
+                                <span class="title">Sônia Lemos</span>
+                                <span class="caption">Consultora de RH</span>
                             </div>
                             <div class="list-action-right">
-                                <span class="top">1 week ago</span>
+                                <span class="top">1 Semana</span>
                                 <i class="ion-android-done bottom"></i>
                             </div>
                         </a>
@@ -78,11 +78,11 @@
                                 <img src="<?php echo base_url('assets/img/faces'); ?>/12.jpg" class="face-radius" alt="">
                             </div>
                             <div class="list-content">
-                                <span class="title">Barack</span>
-                                <span class="caption">Dynamically innovate resource-leveling customer service for state of the art customer service. Objectively innovate empowered manufactured products whereas parallel platforms.</span>
+                                <span class="title">Barack Obama</span>
+                                <span class="caption">US President</span>
                             </div>
                             <div class="list-action-right">
-                                <span class="top">Jan 10, 2015</span>
+                                <span class="top">Jan 10, 2016</span>
                                 <i class="ion-android-done bottom"></i>
                             </div>
                         </a>
@@ -93,11 +93,11 @@
                                 <img src="<?php echo base_url('assets/img/faces'); ?>/13.jpg" class="face-radius" alt="">
                             </div>
                             <div class="list-content">
-                                <span class="title">Lisa Cooper</span>
-                                <span class="caption">Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.</span>
+                                <span class="title">Marcos Camel</span>
+                                <span class="caption">Designer de Produtos</span>
                             </div>
                             <div class="list-action-right">
-                                <span class="top">Jan 5, 2015</span>
+                                <span class="top">Jan 5, 2016</span>
                                 <i class="ion-android-done bottom"></i>
                             </div>
                         </a>
@@ -109,10 +109,10 @@
                             </div>
                             <div class="list-content">
                                 <span class="title">Matthew Harris</span>
-                                <span class="caption">Globally incubate standards compliant channels before scalable benefits. </span>
+                                <span class="caption">Diretor Financeiro</span>
                             </div>
                             <div class="list-action-right">
-                                <span class="top">Jan 4, 2015</span>
+                                <span class="top">Jan 4, 2016</span>
                                 <i class="ion-android-done bottom"></i>
                             </div>
                         </a>
@@ -123,11 +123,11 @@
                                 <img src="<?php echo base_url('assets/img/faces'); ?>/17.jpg" class="face-radius" alt="">
                             </div>
                             <div class="list-content">
-                                <span class="title">Diana Nguyen</span>
-                                <span class="caption">Happy new yeaar!!</span>
+                                <span class="title">Diana Niguya</span>
+                                <span class="caption">Consultora Fiscal</span>
                             </div>
                             <div class="list-action-right">
-                                <span class="top">Jan 1, 2015</span>
+                                <span class="top">Dez 6, 2015</span>
                                 <i class="ion-android-done bottom"></i>
                             </div>
                         </a>

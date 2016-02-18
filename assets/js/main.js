@@ -229,7 +229,7 @@ $(document).ready(function(){
                     {
                         position: "top right",
                         width: $(window).width(),
-                        delay: false,
+                        delay: 5000,
                         title: 'SUA SENHA FOI REGISTRADA',
                         msg: 'Sua nova senha foi registrada com sucesso. Realize o login com ela!'
                     }
@@ -521,16 +521,16 @@ $(document).ready(function(){
                         shake(loginSrc);
                         break;
                     case 'noAuth':
-                        var noAuthMsg = 'O Usuário cadastrado não possui autorização prévia para usar o sistema.<br>';
-                        noAuthMsg += 'O cadastro será efetuado mas o login não será liberado.<br>';
-                        noAuthMsg += 'Aguarde a aprovação de um administrador do sistema.<br>';
+                        var noAuthMsg = 'O Usuário cadastrado não possui autorização prévia para utilizar o sistema.<br>';
+                        noAuthMsg += 'Entre em contato com um administrador ou aguarde para receber a liberação no sistema.<br>';
+                        noAuthMsg += '<i class="fa fa-asterisk"></i> Após a aprovação você receberá a senha de acesso em seu e-mail.<br>';
                         Lobibox.notify(
                             'info',
                             {
                                 position: "top right",
                                 width: $(window).width(),
                                 delay: false,
-                                title: 'USUÁRIO NÃO AUTORIZADO',
+                                title: 'USUÁRIO SEM AUTORIZAÇÃO PREVIA',
                                 msg: noAuthMsg
                             }
                         );

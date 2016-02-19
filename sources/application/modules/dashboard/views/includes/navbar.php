@@ -1,5 +1,4 @@
 <!-- BEGIN NAVBAR -->
-
 <div class="nav-bar-container">
 
     <!-- BEGIN MENU ICON -->

@@ -29,6 +29,7 @@ $(document).ready(function(){
     $(loginTitle).html('Entrar no Sistema');
     $('#email').val('').focus();
     $('#senha').val('');
+    //$('.logout-btn-effect').width($('.logout').width()).height($('.logout').height()).hide();
 
     /////                       /////
     /////                       /////
@@ -634,6 +635,16 @@ $(document).ready(function(){
         showClass: 'bounceInLeft',
         hideClass: 'bounceOutRight'
     });
+
+    /*function openCloseButton(data)
+    {
+        $('.logout').fadeOut();
+        $('.logout-btn-effect').show();
+        $('.logout-btn-effect-container').width($(window).width()).css('right',-30).css('top',-20).height($(window).height());
+        $('.logout-btn-effect').animate({width: "+=5000",height:"+=5000",bottom:"-=2500",right:"-=2500"}, 1000,function(){
+                $(location).attr('href', data);
+        });
+    }*/
 
 });
 

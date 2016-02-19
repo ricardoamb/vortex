@@ -7,10 +7,10 @@
         <li>
             <a href="javascript:;"><i class="fa fa-users fa-lg menu-icon"></i> Usuários</a>
             <ul class="child-menu">
-                <li><a href="cards-image.html"><i class="fa fa-plus fa-lg menu-icon"></i> Novo Usuário</a></li>
-                <li><a href="cards-audio.html"><i class="fa fa-list fa-lg menu-icon"></i> Usuários</a></li>
-                <li><a href="cards-video.html">Video Cards</a></li>
-                <li><a href="cards-clickable.html">Clickable Cards</a></li>
+                <li><a href="/users/new"><i class="fa fa-plus fa-lg menu-icon"></i> Novo Usuário</a></li>
+                <li><a href="/users"><i class="fa fa-list fa-lg menu-icon"></i> Usuários</a></li>
+                <li><a href="/users/auth">Autorizar E-mails</a></li>
+                <li><a href="/users/report">Relatório de Usuários</a></li>
             </ul>
         </li>
         <li>

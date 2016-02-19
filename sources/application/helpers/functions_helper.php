@@ -62,7 +62,7 @@ function initialize($instance='dashboard')
             set_theme('footerIncludes',load_javascript(array('jquery-1.12.0.min','bootstrap.min')),false);
             set_theme('globalVendors',load_javascript(array('global-vendors')),false);
             set_theme('vortex',load_javascript(array('pleasure','layout','lobibox.min','perfect-scrollbar.jquery.min')),false);
-            set_theme('defaultIncludes',load_javascript(array('main')),false);
+            set_theme('defaultIncludes',load_javascript(array('main','effects')),false);
             break;
 
         case 'frontend':
